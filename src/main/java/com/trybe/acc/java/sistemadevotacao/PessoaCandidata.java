@@ -23,12 +23,8 @@ public class PessoaCandidata {
     return numero;
   }
 
-  public void setNumero(short numero) {
+  public void setNumero(int numero) {
     this.numero = numero;
   }
-  
-  
-  
-  
   
 }
