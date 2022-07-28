@@ -18,20 +18,22 @@ public class GerenciamentoVotacao {
   /**
    * metodo cadastrar candidato.
    */
-  public void cadastrarPessoaCandidata(String nome, int numero) {
-    if (pessoasCandidatas.stream().anyMatch(o -> o.getNumero() == numero)) {
-      System.out.println("Número pessoa candidata já utilizado!");
-    } else {
-      PessoaCandidata pc = new PessoaCandidata(nome, numero);
-      pessoasCandidatas.add(pc);
+  public void cadastrarPessoaCandidata(String nome, int numeroCandidato) {
+
+    for (PessoaCandidata candidato : pessoasCandidatas) {
+      if (numeroCandidato == candidato.getNumero()) {
+        System.out.println("Número pessoa candidata já utilizado!");
+        return;
+      }
     }
+    pessoasCandidatas.add(new PessoaCandidata(nome, numeroCandidato));
   }
 
   /**
    * metodo cadastrar eleitor.
    */
   public void cadastrarPessoaEleitora(String nome, String cpf) {
-    if (pessoasEleitoras.stream().anyMatch(o -> o.getCpf().equals(cpf))) {
+    if (pessoasEleitoras.stream().anyMatch(e -> e.getCpf().equals(cpf))) {
       System.out.println("Pessoa eleitora já cadastrada!");
     } else {
       PessoaEleitora pe = new PessoaEleitora(nome, cpf);
@@ -67,11 +69,10 @@ public class GerenciamentoVotacao {
         String nome = candidato.getNome();
         int qtdVotos = candidato.getVotos();
         String votos = String.valueOf(qtdVotos);
-        // calcular porcentagem passando candidato como index para o metodo calcularPonce
         double porcetVotosCandidato = this.calcularPorcentagemVotos(qtdVotos);
         String porcent = String.valueOf(porcetVotosCandidato);
         System.out.println("Nome: ".concat(nome).concat(" - ")
-                .concat(votos).concat(" votos ").concat("( " + porcent + " )%"));
+                .concat(votos).concat(" votos ").concat("( " + porcent + "% )"));
       }
       System.out.println("Total de votos: " + this.totalVotos);
     }
@@ -82,5 +83,4 @@ public class GerenciamentoVotacao {
     double votosTotal = Double.parseDouble(String.valueOf(totalVotos));
     return Math.round((votos * 100) / votosTotal);
   }
-
 }

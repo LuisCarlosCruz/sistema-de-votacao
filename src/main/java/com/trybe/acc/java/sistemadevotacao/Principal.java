@@ -65,12 +65,12 @@ public class Principal {
         int voto = Integer.parseInt(votoInput);
         votacao.votar(cpf, voto);
       }
-      if (option3 == 2) {
+      if ((option3 == 2)) {
         votacao.mostrarResultado();
       }
     } while (option3 != 3);
+    votacao.mostrarResultado();
     scanner.close();
-    System.out.println("FIM");
   }
 }
 

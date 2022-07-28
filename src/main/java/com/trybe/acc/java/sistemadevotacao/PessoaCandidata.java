@@ -11,7 +11,7 @@ public class PessoaCandidata extends Pessoa {
   public PessoaCandidata(String nome, int numero) {
     this.nome = nome;
     this.numero = numero;
-    this.votos = 0;
+    this.votos += 0;
   }
 
   public String getNome() {
