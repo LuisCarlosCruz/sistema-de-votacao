@@ -10,8 +10,6 @@ public class Principal {
 
   public static void main(String[] args) {
     byte option1;
-    byte option2;
-    byte option3;
 
     GerenciamentoVotacao votacao = new GerenciamentoVotacao();
     Scanner scanner = new Scanner(System.in);
@@ -32,6 +30,8 @@ public class Principal {
       }
     } while (option1 != 2);
 
+    byte option2;
+
     System.out.println("----------- Cadastre as pessoas eleitoras -----------");
     do {
       System.out.println("Cadastrar pessoa eleitora?\n"
@@ -47,6 +47,8 @@ public class Principal {
         votacao.cadastrarPessoaEleitora(nomeEleitor, cpf);
       }
     } while (option2 != 2);
+
+    byte option3;
 
     System.out.println("----------- Votação iniciada! -----------");
     do {
