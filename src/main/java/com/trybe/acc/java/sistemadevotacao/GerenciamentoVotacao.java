@@ -80,7 +80,7 @@ public class GerenciamentoVotacao {
   private double calcularPorcentagemVotos(int qtdVotos) {
     double votos = Double.parseDouble(String.valueOf(qtdVotos));
     double votosTotal = Double.parseDouble(String.valueOf(totalVotos));
-    return Math.round( (votos*100)/ votosTotal );
+    return Math.round((votos * 100) / votosTotal);
   }
 
 }
